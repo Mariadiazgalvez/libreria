@@ -1,0 +1,109 @@
+<div *ngIf="autor != undefined">
+  <h1>{{autor.nombre | uppercase}}</h1>
+
+  <table>
+    <tr>
+      <th>Nombre</th>
+      <th><input #nombre placeholder="{{autor.nombre}}" /></th>
+    </tr>
+    <tr>
+      <th>Fecha de Nacimiento</th>
+      <th><input #fNacimiento placeholder="{{autor.fNacimiento| date:'yyyy-MM-dd'}}" /></th>
+    </tr>
+    <tr>
+      <th>Pais</th>
+      <th><input #pais placeholder="{{autor.pais}}" /></th>
+    </tr>
+    <tr>
+      <th><button (click)="goBack()">Volver</button></th>
+      <th>
+        <button (click)="save(nombre.value, fNacimiento.value, pais.value)">
+          Guardar
+        </button>
+      </th>
+    </tr>
+  </table>
+  <br />
+  <h2>Libros de dicho autor</h2>
+  <table class="table1" style="text-align:center">
+    <th>ISBN</th>
+    <th>Titulo</th>
+    <th>Autor</th>
+    <th>Genero</th>
+    <th>Editorial</th>
+    <th>Paginas</th>
+    <th>Edicion</th>
+    <th>Precio</th>
+    <th>Total</th>
+    <th>Unidades Vendidas</th>
+    <th>Recaudacion</th>
+    <th>Eliminar</th>
+    <tr *ngFor="let l of autor.libros">
+      <td><a routerLink="/libro/{{l.isbn}}&{{l.autor}}">{{l.isbn}}</a></td>
+      <td>{{l.titulo}}</td>
+      <td>{{l.autor}}</td>
+      <td>{{l.genero}}</td>
+      <td>{{l.editorial}}</td>
+      <td>{{l.numPag}}</td>
+      <td>{{l.anioEdic | date:'yyyy-MM-dd'}}</td>
+      <td>{{l.precio}}</td>
+      <td>{{l.total()}} euros</td>
+      <td>{{l.uniVendi}}</td>
+      <td>{{l.ventas()}} euros </td>
+      <td>
+        <button class="delete" tittle="delete libro" (click)="delete(l)">
+          X
+        </button>
+      </td>
+    </tr>
+  </table>
+  <br />
+  <h2>Añadir un libro al autor</h2>
+  <table class="table1" style="text-align:center">
+    <tr>
+      <th>ISBN</th>
+      <th><input #isbn /></th>
+    </tr>
+    <tr>
+      <th>Titulo</th>
+      <th><input #titulo /></th>
+    </tr>
+    <tr>
+      <th>Autor</th>
+      <th><input #a /></th>
+    </tr>
+    <tr>
+      <th>Genero</th>
+      <th><input #genero /></th>
+    </tr>
+    <tr>
+      <th>Editorial</th>
+      <th><input #editorial /></th>
+    </tr>
+    <tr>
+      <th>Paginas</th>
+      <th><input #numPag /></th>
+    </tr>
+    <tr>
+      <th>Edicion</th>
+      <th><input #anioEdic /></th>
+    </tr>
+    <tr>
+      <th>Precio</th>
+      <th><input #precio /></th>
+    </tr>
+    <tr>
+      <th>Unidades Vendidas</th>
+      <th><input #uniVendi /></th>
+    </tr>
+    <th colspan="2">
+      <button
+        (click)="add(isbn.value,titulo.value,a.value,genero.value,editorial.value,numPag.value, anioEdic.value, precio.value, uniVendi.value)"
+      >
+        Añadir Libro
+      </button>
+    </th>
+  </table>
+
+
+</div>

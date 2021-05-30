@@ -1,0 +1,45 @@
+<div *ngIf="libro != undefined">
+  <h2>Modificar libro con isbn {{libro.isbn}}</h2>
+  <table>
+    <tr>
+      <th>Titulo</th>
+      <th>{{libro.titulo}}</th>
+    </tr>
+    <tr>
+      <th>Autor</th>
+      <th>{{libro.autor}}</th>
+    </tr>
+    <tr>
+      <th>Genero</th>
+      <th>{{libro.genero}}</th>
+    </tr>
+    <tr>
+      <th>Editorial</th>
+      <th>{{libro.editorial}}</th>
+    </tr>
+    <tr>
+      <th>Paginas</th>
+      <th><input #numPag placeholder="{{libro.numPag}}" /></th>
+    </tr>
+    <tr>
+      <th>Edicion</th>
+      <th><input #anioEdic placeholder="{{libro.anioEdic}}" /></th>
+    </tr>
+    <tr>
+      <th>Precio</th>
+      <th><input #precio placeholder="{{libro.precio}}" /></th>
+    </tr>
+    <tr>
+      <th>Unidades Vendidas</th>
+      <th><input #uniVendi placeholder="{{libro.uniVendi}}" /></th>
+    </tr>
+    <th><button (click)="goBack()">Atrás</button></th>
+    <th>
+      <button
+          (click)="save(numPag.value, anioEdic.value, precio.value, uniVendi.value)"
+        >
+          Guardar
+        </button>
+    </th>
+  </table>
+</div>

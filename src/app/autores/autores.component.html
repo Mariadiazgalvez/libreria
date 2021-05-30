@@ -1,0 +1,43 @@
+<div>
+  <h2>Añadir un autor nuevo</h2>
+  <table style="text-align:center">
+    <tr>
+      <th>Nombre</th>
+      <th><input #nombre  /></th>
+    </tr>
+    <tr>
+      <th>Fecha Nacimiento</th>
+      <th><input #fNacimiento  /></th>
+    </tr>
+    <tr>
+      <th>Pais</th>
+      <th><input #pais/></th>
+    </tr>
+
+    <tr>
+      <th colspan="2">
+        <button
+          (click)="add(nombre.value, fNacimiento.value, pais.value)">
+          Añadir
+        </button>
+    </tr>
+  </table>
+</div>
+<div>
+  <h2>Autores</h2>
+  <table style="text-align:center">
+    <tr>
+      <th>Nombre</th>
+      <th>Nacimiento</th>
+      <th>Pais</th>
+      <th>Eliminar</th>
+    </tr>
+    <tr *ngFor="let autor of autores">
+      <td><a routerLink="/autor/{{autor.nombre}}">{{autor.nombre}}</a></td>
+      <td>{{autor.fNacimiento | date:'yyyy-MM-dd'}}</td>
+      <td>{{autor.pais}}</td>
+      <th> <button class="delete" title="delete autor"
+      (click)="delete(autor)">x</button> </th>
+    </tr>
+  </table>
+</div>

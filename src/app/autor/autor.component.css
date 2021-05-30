@@ -1,0 +1,29 @@
+table,
+th,
+td {
+  border: 2px solid rgb(2, 1, 5);
+  border-collapse: collapse;
+}
+
+th {
+  background-color: rgb(240, 229, 205);
+  color: rgb(0, 0, 0);
+}
+
+td {
+  background-color: rgb(240, 229, 205);
+}
+
+button {
+  background-color: rgb(238, 225, 184);
+  font-size: 20px;
+  border-radius: 5px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  text-align: center;
+  border-color: rgb(48, 1, 36);
+  border-width: 1px;
+}
+
+button:hover {
+  background-color: rgb(171, 236, 146);
+}
